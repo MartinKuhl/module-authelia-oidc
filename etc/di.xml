@@ -1,0 +1,23 @@
+
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="GuzzleHttp\Client">
+        <arguments>
+            <argument name="config" xsi:type="array">
+                <item name="timeout" xsi:type="number">6</item>
+                <item name="connect_timeout" xsi:type="number">3</item>
+                <item name="http_errors" xsi:type="boolean">false</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="martinkuhl\AutheliaOidc\Model\Oidc\Jwks">
+        <arguments>
+            <argument name="cacheTtl" xsi:type="number">3600</argument>
+        </arguments>
+    </type>
+    <type name="martinkuhl\AutheliaOidc\Model\Oidc\Discovery">
+        <arguments>
+            <argument name="cacheTtl" xsi:type="number">3600</argument>
+        </arguments>
+    </type>
+</config>

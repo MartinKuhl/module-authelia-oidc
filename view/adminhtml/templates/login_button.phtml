@@ -1,0 +1,14 @@
+
+<?php
+/** @var \martinkuhl\AutheliaOidc\Helper\Data $helper */
+$helper = $block->getData('helper') ?? $block->getLayout()->createBlock(\Magento\Framework\View\Element\Template::class)->getData('helper');
+
+if ($helper && $helper->isEnabled()):
+    $redirectUrl = $block->getUrl('authelia/oidc/redirect');
+?>
+<div style="margin-top: 12px;">
+    <a class="action-default scalable" href="<?= $redirectUrl ?>">
+        <span>Login mit Authelia</span>
+    </a>
+</div>
+<?php endif; ?>

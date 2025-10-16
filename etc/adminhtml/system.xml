@@ -1,0 +1,37 @@
+
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="martinkuhl_authelia_oidc" translate="label" sortOrder="900" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>martinkuhl Authelia OIDC</label>
+            <tab>advanced</tab>
+            <resource>Magento_Config::config</resource>
+            <group id="general" translate="label" sortOrder="10" showInDefault="1">
+                <label>Allgemein</label>
+                <field id="enabled" type="select" sortOrder="10" showInDefault="1">
+                    <label>Aktiviert</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="issuer" type="text" sortOrder="20" showInDefault="1">
+                    <label>Issuer URL (z.B. https://auth.example.com)</label>
+                </field>
+                <field id="client_id" type="text" sortOrder="30" showInDefault="1">
+                    <label>Client ID</label>
+                </field>
+                <field id="client_secret" type="obscure" sortOrder="40" showInDefault="1">
+                    <label>Client Secret</label>
+                </field>
+                <field id="scope" type="text" sortOrder="50" showInDefault="1">
+                    <label>Scopes</label>
+                    <comment>z.B. openid email profile</comment>
+                    <default>openid email profile</default>
+                </field>
+                <field id="username_claim" type="text" sortOrder="60" showInDefault="1">
+                    <label>Claim für Benutzer-Mapping</label>
+                    <comment>z.B. preferred_username oder email</comment>
+                    <default>email</default>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
