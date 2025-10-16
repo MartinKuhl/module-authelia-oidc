@@ -1,5 +1,5 @@
 
-# martinkuhl Authelia OIDC for Magento 2
+# Authelia OIDC for Magento 2
 
 Magento 2.4.8 Admin-Login via Authelia (OpenID Connect) mit PKCE, JWKS/RS256 und Caching.
 
