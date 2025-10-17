@@ -1,4 +1,5 @@
 <?php
+
 namespace Martinkuhl\AutheliaOidc\Model\Oidc;
 
 use GuzzleHttp\Client as HttpClient;

@@ -1,5 +1,5 @@
-
 <?php
+
 namespace Martinkuhl\AutheliaOidc\Controller\Adminhtml\Oidc;
 
 use Magento\Backend\App\Action;

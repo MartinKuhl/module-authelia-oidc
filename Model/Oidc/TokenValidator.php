@@ -1,4 +1,5 @@
 <?php
+
 namespace Martinkuhl\AutheliaOidc\Model\Oidc;
 
 use Magento\Framework\Exception\LocalizedException;

@@ -1,4 +1,5 @@
 <?php
+
 namespace Martinkuhl\AutheliaOidc\Model;
 
 use Magento\User\Model\UserFactory;

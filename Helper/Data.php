@@ -1,4 +1,5 @@
 <?php
+
 namespace Martinkuhl\AutheliaOidc\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
