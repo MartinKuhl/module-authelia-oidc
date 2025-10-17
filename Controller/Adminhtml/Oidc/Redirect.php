@@ -4,7 +4,7 @@ namespace Martinkuhl\AutheliaOidc\Controller\Adminhtml\Oidc;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
-use Magento\Framework\Controller\Result\RedirectFactory;
+use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\UrlInterface;
 use Martinkuhl\AutheliaOidc\Model\Oidc\Client;
 use Martinkuhl\AutheliaOidc\Model\Oidc\State;
@@ -16,7 +16,7 @@ class Redirect extends Action
 
     private Client $client;
     private State $state;
-    private RedirectFactory $resultRedirectFactory;
+    protected $resultRedirectFactory;
     private UrlInterface $url;
     private Data $helper;
 
