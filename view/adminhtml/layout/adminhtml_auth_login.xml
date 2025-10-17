@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-login" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="form.additional.info">
-            <block class="Magento\Framework\View\Element\Template" name="martinkuhl.authelia.oidc.button" template="Martinkuhl_AutheliaOidc::login_button.phtml" />
+            <block class="Martinkuhl\AutheliaOidc\Block\Adminhtml\Login\Button" name="martinkuhl.authelia.oidc.button" template="Martinkuhl_AutheliaOidc::login_button.phtml" />
         </referenceBlock>
     </body>
 </page>
