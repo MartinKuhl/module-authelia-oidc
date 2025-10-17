@@ -1,0 +1,35 @@
+/**
+ * Authelia OIDC Button Styles
+ */
+.authelia-oidc-button-container {
+    margin-top: 30px; /* Erhöhter Abstand zum "Passwort vergessen" Link */
+    clear: both;      /* Verhindert Überlappungen */
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.authelia-oidc-button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    min-width: 160px;
+    display: inline-block;
+    background-color: #eb5202; /* Magento Admin Orange */
+    color: #ffffff !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 3px;
+    padding: 12px 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.authelia-oidc-button:hover {
+    background-color: #ba4000;
+    text-decoration: none;
+}
+
+.authelia-oidc-button span {
+    color: #ffffff !important;
+    font-size: 1.4rem;
+}

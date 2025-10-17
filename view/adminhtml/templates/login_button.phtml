@@ -4,9 +4,16 @@
  */
 if ($block->isEnabled()):
 ?>
-<div style="margin-top: 12px;">
-    <a class="action-default scalable" href="<?= $block->escapeUrl($block->getRedirectUrl()) ?>">
-        <span><?= $block->escapeHtml(__('Login mit Authelia')) ?></span>
+<div class="authelia-oidc-button-container">
+    <a class="action-default scalable authelia-oidc-button" href="<?= $block->getRedirectUrl() ?>">
+        <span>Login mit Authelia</span>
     </a>
 </div>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "autheliaButtonFix": {}
+    }
+}
+</script>
 <?php endif; ?>
