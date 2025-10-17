@@ -10,7 +10,7 @@ class Handler extends Base
     /**
      * @var string
      */
-    protected $fileName = 'var/log/authelia_oidc.log';
+    protected $fileName = '/var/www/html/var/log/authelia_oidc.log';
 
     /**
      * @var int
