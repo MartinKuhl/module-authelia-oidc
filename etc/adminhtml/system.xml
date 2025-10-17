@@ -23,12 +23,10 @@
                 <field id="scope" type="text" sortOrder="50" showInDefault="1">
                     <label>Scopes</label>
                     <comment>z.B. openid email profile</comment>
-                    <default>openid email profile</default>
                 </field>
                 <field id="username_claim" type="text" sortOrder="60" showInDefault="1">
                     <label>Claim für Benutzer-Mapping</label>
                     <comment>z.B. preferred_username oder email</comment>
-                    <default>email</default>
                 </field>
             </group>
         </section>
