@@ -1,8 +1,5 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-login" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <head>
-        <css src="Martinkuhl_AutheliaOidc::css/authelia-oidc.css"/>
-    </head>
     <body>
         <referenceBlock name="form.additional.info">
             <block class="Martinkuhl\AutheliaOidc\Block\Adminhtml\Login\Button" name="martinkuhl.authelia.oidc.button" template="Martinkuhl_AutheliaOidc::login_button.phtml" />
