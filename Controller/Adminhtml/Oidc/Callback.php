@@ -4,7 +4,7 @@ namespace Martinkuhl\AutheliaOidc\Controller\Adminhtml\Oidc;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
-use Magento\Framework\Controller\Result\RedirectFactory;
+use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\UrlInterface;
 use Magento\Framework\App\Response\RedirectInterface;
 use Martinkuhl\AutheliaOidc\Model\Oidc\Client;
@@ -21,7 +21,7 @@ class Callback extends Action
     private State $state;
     private TokenValidator $validator;
     private Authenticator $authenticator;
-    private RedirectFactory $resultRedirectFactory;
+    protected $resultRedirectFactory;
     private UrlInterface $url;
     private Data $helper;
     private RedirectInterface $redirect;
