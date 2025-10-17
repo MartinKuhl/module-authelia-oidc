@@ -10,10 +10,10 @@ class Handler extends Base
     /**
      * @var string
      */
-    protected $fileName = '/var/log/authelia_oidc.log';
+    protected $fileName = 'var/log/authelia_oidc.log';
 
     /**
      * @var int
      */
-    protected $loggerType = Logger::DEBUG;
+    protected $loggerType = Logger::INFO; // Alle Nachrichten mit Level INFO und höher werden protokolliert
 }

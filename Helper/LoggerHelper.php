@@ -2,19 +2,19 @@
 
 namespace Martinkuhl\AutheliaOidc\Helper;
 
-use Martinkuhl\AutheliaOidc\Logger\Logger;
+use Psr\Log\LoggerInterface;
 
 class LoggerHelper
 {
     /**
-     * @var Logger
+     * @var LoggerInterface
      */
     protected $logger;
 
     /**
-     * @param Logger $logger
+     * @param LoggerInterface $logger
      */
-    public function __construct(Logger $logger)
+    public function __construct(LoggerInterface $logger)
     {
         $this->logger = $logger;
     }

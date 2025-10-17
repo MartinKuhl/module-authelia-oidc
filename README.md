@@ -12,7 +12,7 @@ bin/magento cache:flush
 ```
 
 ## Konfiguration
-- Stores > Configuration > Advanced > Martinkuhl Authelia OIDC
+- Stores > Configuration > Advanced > Authelia OIDC
   - Issuer, Client ID/Secret, Scopes, Username Claim
 - Redirect URI in Authelia:
   - https://YOUR-HOST/admin/authelia/oidc/callback
