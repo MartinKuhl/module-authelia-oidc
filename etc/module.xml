@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<module name="Martinkuhl_AutheliaOidc   " setup_version="1.0.0">
+<module name="Martinkuhl_AutheliaOidc" setup_version="1.0.0">
     <sequence>
         <module name="Magento_Backend"/>
         <module name="Magento_User"/>
