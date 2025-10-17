@@ -1,17 +1,17 @@
 
 <?php
-namespace martinkuhl\AutheliaOidc\Controller\Adminhtml\Oidc;
+namespace Martinkuhl\AutheliaOidc\Controller\Adminhtml\Oidc;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\Controller\Result\RedirectFactory;
 use Magento\Framework\UrlInterface;
 use Magento\Framework\App\Response\RedirectInterface;
-use martinkuhl\AutheliaOidc\Model\Oidc\Client;
-use martinkuhl\AutheliaOidc\Model\Oidc\State;
-use martinkuhl\AutheliaOidc\Model\Oidc\TokenValidator;
-use martinkuhl\AutheliaOidc\Model\Authenticator;
-use martinkuhl\AutheliaOidc\Helper\Data;
+use Martinkuhl\AutheliaOidc\Model\Oidc\Client;
+use Martinkuhl\AutheliaOidc\Model\Oidc\State;
+use Martinkuhl\AutheliaOidc\Model\Oidc\TokenValidator;
+use Martinkuhl\AutheliaOidc\Model\Authenticator;
+use Martinkuhl\AutheliaOidc\Helper\Data;
 
 class Callback extends Action
 {

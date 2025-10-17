@@ -1,9 +1,9 @@
 
 <?php
-namespace martinkuhl\AutheliaOidc\Model\Oidc;
+namespace Martinkuhl\AutheliaOidc\Model\Oidc;
 
 use Magento\Framework\Exception\LocalizedException;
-use martinkuhl\AutheliaOidc\Helper\Data;
+use Martinkuhl\AutheliaOidc\Helper\Data;
 use Jose\Component\Core\JWKSet;
 use Jose\Component\Signature\Algorithm\RS256;
 use Jose\Component\Signature\JWSVerifier;

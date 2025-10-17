@@ -1,14 +1,14 @@
 
 <?php
-namespace martinkuhl\AutheliaOidc\Controller\Adminhtml\Oidc;
+namespace Martinkuhl\AutheliaOidc\Controller\Adminhtml\Oidc;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\Controller\Result\RedirectFactory;
 use Magento\Framework\UrlInterface;
-use martinkuhl\AutheliaOidc\Model\Oidc\Client;
-use martinkuhl\AutheliaOidc\Model\Oidc\State;
-use martinkuhl\AutheliaOidc\Helper\Data;
+use Martinkuhl\AutheliaOidc\Model\Oidc\Client;
+use Martinkuhl\AutheliaOidc\Model\Oidc\State;
+use Martinkuhl\AutheliaOidc\Helper\Data;
 
 class Redirect extends Action
 {

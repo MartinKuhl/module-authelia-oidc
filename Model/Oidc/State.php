@@ -1,6 +1,6 @@
 
 <?php
-namespace martinkuhl\AutheliaOidc\Model\Oidc;
+namespace Martinkuhl\AutheliaOidc\Model\Oidc;
 
 use Magento\Backend\Model\Auth\Session as AdminSession;
 

@@ -1,6 +1,6 @@
 
 <?php
-/** @var \martinkuhl\AutheliaOidc\Helper\Data $helper */
+/** @var \Martinkuhl\AutheliaOidc\Helper\Data $helper */
 $helper = $block->getData('helper') ?? $block->getLayout()->createBlock(\Magento\Framework\View\Element\Template::class)->getData('helper');
 
 if ($helper && $helper->isEnabled()):

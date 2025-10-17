@@ -1,6 +1,6 @@
 
 <?php
-namespace martinkuhl\AutheliaOidc\Helper;
+namespace Martinkuhl\AutheliaOidc\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Store\Model\ScopeInterface;

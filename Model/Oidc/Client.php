@@ -1,10 +1,10 @@
 
 <?php
-namespace martinkuhl\AutheliaOidc\Model\Oidc;
+namespace Martinkuhl\AutheliaOidc\Model\Oidc;
 
 use GuzzleHttp\Client as HttpClient;
 use Magento\Framework\Exception\LocalizedException;
-use martinkuhl\AutheliaOidc\Helper\Data;
+use Martinkuhl\AutheliaOidc\Helper\Data;
 
 class Client
 {

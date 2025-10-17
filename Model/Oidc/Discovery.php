@@ -1,5 +1,5 @@
 <?php
-namespace martinkuhl\AutheliaOidc\Model\Oidc;
+namespace Martinkuhl\AutheliaOidc\Model\Oidc;
 
 use GuzzleHttp\Client as HttpClient;
 use Magento\Framework\App\CacheInterface;

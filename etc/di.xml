@@ -10,12 +10,12 @@
             </argument>
         </arguments>
     </type>
-    <type name="martinkuhl\AutheliaOidc\Model\Oidc\Jwks">
+    <type name="Martinkuhl\AutheliaOidc\Model\Oidc\Jwks">
         <arguments>
             <argument name="cacheTtl" xsi:type="number">3600</argument>
         </arguments>
     </type>
-    <type name="martinkuhl\AutheliaOidc\Model\Oidc\Discovery">
+    <type name="Martinkuhl\AutheliaOidc\Model\Oidc\Discovery">
         <arguments>
             <argument name="cacheTtl" xsi:type="number">3600</argument>
         </arguments>

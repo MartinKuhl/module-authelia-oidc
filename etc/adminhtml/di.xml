@@ -4,7 +4,7 @@
     <type name="Magento\Framework\View\Element\Template">
         <arguments>
             <argument name="data" xsi:type="array">
-                <item name="helper" xsi:type="object">martinkuhl\AutheliaOidc\Helper\Data</item>
+                <item name="helper" xsi:type="object">Martinkuhl\AutheliaOidc\Helper\Data</item>
             </argument>
         </arguments>
     </type>

@@ -1,11 +1,11 @@
 
 <?php
-namespace martinkuhl\AutheliaOidc\Model;
+namespace Martinkuhl\AutheliaOidc\Model;
 
 use Magento\User\Model\UserFactory;
 use Magento\Backend\Model\Auth;
 use Magento\Framework\Exception\LocalizedException;
-use martinkuhl\AutheliaOidc\Helper\Data;
+use Martinkuhl\AutheliaOidc\Helper\Data;
 
 class Authenticator
 {
