@@ -21,21 +21,33 @@ class Client
 
     public function getAuthorizeUrl(string $baseUrl, string $state, string $nonce, string $codeVerifier): string
     {
-        $config = $this->discovery->getConfiguration($this->helper->getIssuer());
-        $authorizeEndpoint = $config['authorization_endpoint'];
-        $codeChallenge = rtrim(strtr(base64_encode(hash('sha256', $codeVerifier, true)), '+/', '-_'), '=');
+        try {
+            $config = $this->discovery->getConfiguration($this->helper->getIssuer());
+            if (!isset($config['authorization_endpoint'])) {
+                throw new \Magento\Framework\Exception\LocalizedException(
+                    __('Keine authorization_endpoint in OIDC Discovery gefunden')
+                );
+            }
+            
+            $authorizeEndpoint = $config['authorization_endpoint'];
+            $codeChallenge = rtrim(strtr(base64_encode(hash('sha256', $codeVerifier, true)), '+/', '-_'), '=');
 
-        $params = [
-            'response_type' => 'code',
-            'client_id' => $this->helper->getClientId(),
-            'redirect_uri' => $this->helper->getRedirectUri($baseUrl),
-            'scope' => $this->helper->getScope(),
-            'state' => $state,
-            'nonce' => $nonce,
-            'code_challenge' => $codeChallenge,
-            'code_challenge_method' => 'S256'
-        ];
-        return $authorizeEndpoint . '?' . http_build_query($params);
+            $params = [
+                'response_type' => 'code',
+                'client_id' => $this->helper->getClientId(),
+                'redirect_uri' => $this->helper->getRedirectUri($baseUrl),
+                'scope' => $this->helper->getScope(),
+                'state' => $state,
+                'nonce' => $nonce,
+                'code_challenge' => $codeChallenge,
+                'code_challenge_method' => 'S256'
+            ];
+            return $authorizeEndpoint . '?' . http_build_query($params);
+        } catch (\Throwable $e) {
+            throw new \Magento\Framework\Exception\LocalizedException(
+                __('Fehler beim Erstellen der Authorize URL: %1', $e->getMessage())
+            );
+        }
     }
 
     public function exchangeCodeForTokens(string $code, string $baseUrl, ?string $codeVerifier): array

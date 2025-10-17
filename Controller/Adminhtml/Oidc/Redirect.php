@@ -47,7 +47,16 @@ class Redirect extends Action
         try {
             $baseUrl = $this->url->getBaseUrl();
             $pair = $this->state->generate();
+            
+            // Debug-Informationen
+            $issuer = $this->helper->getIssuer();
+            $clientId = $this->helper->getClientId();
+            $redirect = $this->helper->getRedirectUri($baseUrl);
+            $this->messageManager->addNoticeMessage(__('Debug: Issuer=%1, Client ID=%2, Redirect=%3', $issuer, $clientId, $redirect));
+            
             $authUrl = $this->client->getAuthorizeUrl($baseUrl, $pair['state'], $pair['nonce'], $pair['code_verifier']);
+            $this->messageManager->addNoticeMessage(__('Debug: Auth URL=%1', $authUrl));
+            
             $result->setUrl($authUrl);
             return $result;
         } catch (\Throwable $e) {
