@@ -19,4 +19,19 @@
             <argument name="cacheTtl" xsi:type="number">3600</argument>
         </arguments>
     </type>
+    
+    <!-- Logger Konfiguration -->
+    <type name="Martinkuhl\AutheliaOidc\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Martinkuhl\AutheliaOidc\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">authelia_oidc</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="system" xsi:type="object">Martinkuhl\AutheliaOidc\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
 </config>

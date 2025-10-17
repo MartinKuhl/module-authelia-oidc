@@ -5,27 +5,45 @@ namespace Martinkuhl\AutheliaOidc\Model\Oidc;
 use GuzzleHttp\Client as HttpClient;
 use Magento\Framework\Exception\LocalizedException;
 use Martinkuhl\AutheliaOidc\Helper\Data;
+use Martinkuhl\AutheliaOidc\Helper\LoggerHelper;
 
 class Client
 {
     private Data $helper;
     private Discovery $discovery;
     private HttpClient $http;
+    private LoggerHelper $logger;
 
-    public function __construct(Data $helper, Discovery $discovery, HttpClient $http)
-    {
+    public function __construct(
+        Data $helper, 
+        Discovery $discovery, 
+        HttpClient $http,
+        LoggerHelper $logger
+    ) {
         $this->helper = $helper;
         $this->discovery = $discovery;
         $this->http = $http;
+        $this->logger = $logger;
     }
 
     public function getAuthorizeUrl(string $baseUrl, string $state, string $nonce, string $codeVerifier): string
     {
+        $this->logger->info('getAuthorizeUrl aufgerufen', [
+            'baseUrl' => $baseUrl,
+            'state' => substr($state, 0, 5) . '...',  // Nur einen Teil für Sicherheit loggen
+            'nonce' => substr($nonce, 0, 5) . '...'   // Nur einen Teil für Sicherheit loggen
+        ]);
+        
         try {
-            $config = $this->discovery->getConfiguration($this->helper->getIssuer());
+            $issuer = $this->helper->getIssuer();
+            $this->logger->info('OIDC Discovery wird aufgerufen', ['issuer' => $issuer]);
+            
+            $config = $this->discovery->getConfiguration($issuer);
             if (!isset($config['authorization_endpoint'])) {
+                $error = 'Keine authorization_endpoint in OIDC Discovery gefunden';
+                $this->logger->error($error, ['config' => $config]);
                 throw new \Magento\Framework\Exception\LocalizedException(
-                    __('Keine authorization_endpoint in OIDC Discovery gefunden')
+                    __($error)
                 );
             }
             
@@ -42,10 +60,20 @@ class Client
                 'code_challenge' => $codeChallenge,
                 'code_challenge_method' => 'S256'
             ];
-            return $authorizeEndpoint . '?' . http_build_query($params);
+            
+            $url = $authorizeEndpoint . '?' . http_build_query($params);
+            $this->logger->info('Authorize URL generiert', [
+                'authorizeEndpoint' => $authorizeEndpoint,
+                'redirectUri' => $this->helper->getRedirectUri($baseUrl),
+                'clientId' => $this->helper->getClientId()
+            ]);
+            
+            return $url;
         } catch (\Throwable $e) {
+            $error = 'Fehler beim Erstellen der Authorize URL: ' . $e->getMessage();
+            $this->logger->error($error, ['exception' => $e->getTraceAsString()]);
             throw new \Magento\Framework\Exception\LocalizedException(
-                __('Fehler beim Erstellen der Authorize URL: %1', $e->getMessage())
+                __($error)
             );
         }
     }
