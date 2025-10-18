@@ -15,7 +15,9 @@ use Martinkuhl\AutheliaOidc\Helper\Data;
 
 class Callback extends Action
 {
-    const ADMIN_RESOURCE = 'Magento_Backend::admin';
+    // Erlauben, dass dieser Controller ohne Admin-Rechte aufgerufen werden kann
+    // Dies ist wichtig, da der Callback während der Anmeldephase aufgerufen wird
+    const ADMIN_RESOURCE = 'Martinkuhl_AutheliaOidc::callback';
 
     private Client $client;
     private State $state;

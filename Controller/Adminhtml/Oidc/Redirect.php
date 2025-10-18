@@ -13,7 +13,8 @@ use Martinkuhl\AutheliaOidc\Helper\LoggerHelper;
 
 class Redirect extends Action
 {
-    const ADMIN_RESOURCE = 'Magento_Backend::admin';
+    // Erlaube Zugriff ohne Authentifizierung, da der Controller von der Login-Seite aufgerufen wird
+    const ADMIN_RESOURCE = null;
 
     private Client $client;
     private State $state;
@@ -70,10 +71,19 @@ class Redirect extends Action
             
             $authUrl = $this->client->getAuthorizeUrl($baseUrl, $pair['state'], $pair['nonce'], $pair['code_verifier']);
             $this->logger->info('OIDC Auth URL generiert', ['auth_url' => $authUrl]);
-            $this->messageManager->addNoticeMessage(__('Debug: Auth URL=%1', $authUrl));
+            $this->logger->info('Leite um zu Auth URL mit JavaScript-Fallback');
             
-            $result->setUrl($authUrl);
-            return $result;
+            // Für den Fall, dass die normale Redirect-Methode fehlschlägt, verwenden wir JavaScript als Fallback
+            $html = '<html><head><title>Weiterleitung zu Authelia</title></head><body>';
+            $html .= '<h1>Weiterleitung zu Authelia...</h1>';
+            $html .= '<p>Sie werden zur Authentifizierung weitergeleitet. Falls die automatische Weiterleitung nicht funktioniert, klicken Sie bitte auf den Link unten.</p>';
+            $html .= '<p><a href="' . $authUrl . '">Zur Authelia-Anmeldung</a></p>';
+            $html .= '<script type="text/javascript">window.location.href = "' . $authUrl . '";</script>';
+            $html .= '</body></html>';
+            
+            // Direkt die Ausgabe senden, ohne auf den normalen Controller-Flow zu warten
+            $this->getResponse()->setBody($html);
+            return $this->getResponse();
         } catch (\Throwable $e) {
             $errorMsg = 'OIDC Redirect fehlgeschlagen: ' . $e->getMessage();
             $this->logger->error($errorMsg, ['exception' => $e->getTraceAsString()]);

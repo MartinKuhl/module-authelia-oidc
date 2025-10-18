@@ -41,6 +41,10 @@ class Data extends AbstractHelper
 
     public function getRedirectUri(string $baseUrl): string
     {
-        return rtrim($baseUrl, '/') . '/admin/authelia/oidc/callback';
+        $redirectPath = $this->scopeConfig->getValue(self::XML_PATH . 'redirect_uri_path', ScopeInterface::SCOPE_STORE);
+        if (empty($redirectPath)) {
+            $redirectPath = '/admin/authelia/oidc/callback';
+        }
+        return rtrim($baseUrl, '/') . $redirectPath;
     }
 }

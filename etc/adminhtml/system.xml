@@ -28,6 +28,10 @@
                     <label>Claim für Benutzer-Mapping</label>
                     <comment>z.B. preferred_username oder email</comment>
                 </field>
+                <field id="redirect_uri_path" type="text" sortOrder="70" showInDefault="1">
+                    <label>Redirect URI Pfad</label>
+                    <comment>z.B. /admin/authelia/oidc/callback (muss bei Authelia registriert sein)</comment>
+                </field>
             </group>
         </section>
     </system>

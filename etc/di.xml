@@ -1,5 +1,13 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="configure_redirect_uri" xsi:type="object">Martinkuhl\AutheliaOidc\Console\Command\ConfigureRedirectUri</item>
+            </argument>
+        </arguments>
+    </type>
+    
     <type name="GuzzleHttp\Client">
         <arguments>
             <argument name="config" xsi:type="array">
@@ -21,10 +29,17 @@
     </type>
     
     <!-- Logger Konfiguration -->
+    <type name="Martinkuhl\AutheliaOidc\Logger\Handler">
+        <arguments>
+            <argument name="file" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    
     <virtualType name="AutheliaOidcLogger" type="Magento\Framework\Logger\Monolog">
         <arguments>
-            <argument name="name" xsi:type="string">authelia_oidc</argument>
+            <argument name="name" xsi:type="string">authelia</argument>
             <argument name="handlers" xsi:type="array">
+                <item name="system" xsi:type="object">Magento\Framework\Logger\Handler\System</item>
                 <item name="custom" xsi:type="object">Martinkuhl\AutheliaOidc\Logger\Handler</item>
             </argument>
             <argument name="processors" xsi:type="array">

@@ -1,0 +1,23 @@
+<h2>Authelia OIDC Logger Test</h2>
+
+<div class="admin__field">
+    <div class="admin__field-label">
+        <span><?= $block->escapeHtml(__('Test Status:')) ?></span>
+    </div>
+    <div class="admin__field-control">
+        <div class="admin__field-note">
+            <?= $block->escapeHtml($block->writeTestLogs()) ?>
+        </div>
+    </div>
+</div>
+
+<div class="admin__field">
+    <div class="admin__field-label">
+        <span><?= $block->escapeHtml(__('Log File Contents (last 20 lines):')) ?></span>
+    </div>
+    <div class="admin__field-control">
+        <div class="admin__field-note">
+            <pre><?= $block->escapeHtml($block->getLogFileContents()) ?></pre>
+        </div>
+    </div>
+</div>

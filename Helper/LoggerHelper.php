@@ -88,4 +88,46 @@ class LoggerHelper
         }
         $this->logger->critical($message, $context);
     }
+    
+    /**
+     * Notice-Log schreiben
+     *
+     * @param string|array $message
+     * @param array $context
+     */
+    public function notice($message, array $context = []): void
+    {
+        if (is_array($message)) {
+            $message = print_r($message, true);
+        }
+        $this->logger->notice($message, $context);
+    }
+    
+    /**
+     * Alert-Log schreiben
+     *
+     * @param string|array $message
+     * @param array $context
+     */
+    public function alert($message, array $context = []): void
+    {
+        if (is_array($message)) {
+            $message = print_r($message, true);
+        }
+        $this->logger->alert($message, $context);
+    }
+    
+    /**
+     * Emergency-Log schreiben
+     *
+     * @param string|array $message
+     * @param array $context
+     */
+    public function emergency($message, array $context = []): void
+    {
+        if (is_array($message)) {
+            $message = print_r($message, true);
+        }
+        $this->logger->emergency($message, $context);
+    }
 }

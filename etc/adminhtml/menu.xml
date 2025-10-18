@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Martinkuhl_AutheliaOidc::authelia" title="Authelia OIDC" translate="title" module="Martinkuhl_AutheliaOidc" sortOrder="100" parent="Magento_Backend::system" resource="Martinkuhl_AutheliaOidc::authelia"/>
+        <add id="Martinkuhl_AutheliaOidc::config" title="Configuration" translate="title" module="Martinkuhl_AutheliaOidc" sortOrder="10" parent="Martinkuhl_AutheliaOidc::authelia" action="adminhtml/system_config/edit/section/authelia" resource="Martinkuhl_AutheliaOidc::config"/>
+        <add id="Martinkuhl_AutheliaOidc::testlog" title="Test Logging" translate="title" module="Martinkuhl_AutheliaOidc" sortOrder="20" parent="Martinkuhl_AutheliaOidc::authelia" action="authelia/oidc/testlog" resource="Martinkuhl_AutheliaOidc::testlog"/>
+    </menu>
+</config>

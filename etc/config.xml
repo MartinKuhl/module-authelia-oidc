@@ -6,6 +6,7 @@
                 <enabled>0</enabled>
                 <scope>openid email profile</scope>
                 <username_claim>email</username_claim>
+                <redirect_uri_path>/admin/authelia/oidc/callback</redirect_uri_path>
             </general>
         </martinkuhl_authelia_oidc>
     </default>
