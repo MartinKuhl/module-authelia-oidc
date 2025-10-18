@@ -25,7 +25,10 @@
         <arguments>
             <argument name="name" xsi:type="string">authelia_oidc</argument>
             <argument name="handlers" xsi:type="array">
-                <item name="debug" xsi:type="object">Martinkuhl\AutheliaOidc\Logger\Handler</item>
+                <item name="custom" xsi:type="object">Martinkuhl\AutheliaOidc\Logger\Handler</item>
+            </argument>
+            <argument name="processors" xsi:type="array">
+                <item name="processor" xsi:type="object">Monolog\Processor\PsrLogMessageProcessor</item>
             </argument>
         </arguments>
     </virtualType>
@@ -33,12 +36,6 @@
     <type name="Martinkuhl\AutheliaOidc\Helper\LoggerHelper">
         <arguments>
             <argument name="logger" xsi:type="object">AutheliaOidcLogger</argument>
-        </arguments>
-    </type>
-    
-    <type name="Martinkuhl\AutheliaOidc\Logger\Handler">
-        <arguments>
-            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
         </arguments>
     </type>
 </config>
